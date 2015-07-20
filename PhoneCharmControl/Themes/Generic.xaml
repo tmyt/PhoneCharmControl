@@ -1,0 +1,32 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phoneCharmControl="using:PhoneCharmControl">
+
+    <Style TargetType="phoneCharmControl:Charm">
+        <Setter Property="EdgePlacement" Value="Left" />
+        <Setter Property="Background" Value="#00000000" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="phoneCharmControl:Charm">
+                    <Grid>
+                        <!-- edge detector -->
+                        <Border Background="#00000000" Width="12" HorizontalAlignment="{TemplateBinding EdgePlacement}" x:Name="Edge" />
+                        <!-- light dissmiss cover -->
+                        <Border Background="#00000000" Visibility="Collapsed" x:Name="Cover" />
+                        <!-- Left side menu -->
+                        <Popup IsOpen="False"  x:Name="LeftMenu" HorizontalAlignment="{TemplateBinding EdgePlacement}">
+                            <Popup.RenderTransform>
+                                <TranslateTransform Y="-30" x:Name="PopupTransform"/>
+                            </Popup.RenderTransform>
+                            <Border Height="666" Background="{TemplateBinding Background}" x:Name="MenuContent" Padding="0,30,0,0">
+                                <ContentPresenter Width="{TemplateBinding CharmWidth}" x:Name="Presenter"/>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>
